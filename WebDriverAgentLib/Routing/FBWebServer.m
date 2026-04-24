@@ -14,6 +14,7 @@
 #import "FBCommandHandler.h"
 #import "FBErrorBuilder.h"
 #import "FBExceptionHandler.h"
+#import "../Utilities/FBFastTouchServer.m"
 #import "FBMjpegServer.h"
 #import "FBRouteRequest.h"
 #import "FBRuntimeUtils.h"
@@ -78,6 +79,7 @@ static NSString *const FBServerURLEndMarker = @"<-ServerURLHere";
   self.exceptionHandler = [FBExceptionHandler new];
   [self startHTTPServer];
   [self initScreenshotsBroadcaster];
+  [FBFastTouchServer startOnPort:9200];
 
   self.keepAlive = YES;
   NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
